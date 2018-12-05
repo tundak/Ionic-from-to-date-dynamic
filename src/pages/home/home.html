@@ -10,31 +10,30 @@
   <form [formGroup]="form" (ngSubmit)="manage(form.value)">
    	  <ion-list margin-bottom>
 
-         <!-- Assign the fromdate FormArray to the form
+         <!-- Assign the formdate FormArray to the form
               where we want to track/generate new input track fields -->
-	     <div formArrayName="fromdate" margin-bottom>
+	     <div formArrayName="formdate" margin-bottom>
 
 
             <!-- Assign a FormGroupName property binding to track
                  and manage each separate generated input field.
-                 Also iterate through the fromdate FormArray to
+                 Also iterate through the formdate FormArray to
                  correctly track/render new input fields against
                  existing fields -->
-            <section [formGroupName]="i" *ngFor="let tech of form.controls.fromdate.controls; let i = index">
+            <section [formGroupName]="i" *ngFor="let tech of form.controls.formdate.controls; let i = index">
                <ion-item-group>
-               	  <ion-item-divider color="light">Name #{{ i + 1 }}</ion-item-divider>
+               	  <ion-item-divider color="light">Date #{{ i + 1 }}</ion-item-divider>
                	  <ion-item>
 					  <ion-label>From Date</ion-label>
 					  <ion-datetime displayFormat="MM/DD/YYYY" formControlName="fdate"></ion-datetime>
 				  </ion-item>
-
 				  <ion-item>
 					  <ion-label>To Date</ion-label>
 					  <ion-datetime displayFormat="MM/DD/YYYY" formControlName="todate"></ion-datetime>
 				  </ion-item>
 
                   <!-- Allow generated input field to be removed -->
-                  <span float-right ion-button icon-left clear *ngIf="form.controls.fromdate.length > 1" (click)="removeInputField(i)">
+                  <span float-right ion-button icon-left clear *ngIf="form.controls.formdate.length > 1" (click)="removeInputField(i)">
                      <ion-icon name="close"></ion-icon>
                      Remove
                   </span>
@@ -46,7 +45,7 @@
          <!-- Allow new input field to be generated/added -->
          <span ion-button float-left icon-left clear (click)="addNewInputField()">
                <ion-icon name="add"></ion-icon>
-               Add a new technology
+               Add a new
          </span>
 
 

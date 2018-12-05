@@ -18,7 +18,7 @@ export class HomePage {
 			   // (with sub-FormGroup objects for handling
 			   // the dynamically generated form input fields)
 			   this.form = this._FB.group({
-			      fromdate     : this._FB.array([
+			      formdate     : this._FB.array([
 			         this.initTechnologyFields()
 			      ])
 			   });
@@ -28,19 +28,19 @@ export class HomePage {
 		{
 		   return this._FB.group({
 		      fdate : ['', Validators.required],
-		      todate : ['', Validators.required],
+		      todate : ['', Validators.required]
 		   });
 		}
 
 	addNewInputField() : void
 		{
-		   const control = <FormArray>this.form.controls.fromdate;
+		   const control = <FormArray>this.form.controls.formdate;
 		   control.push(this.initTechnologyFields());
 		}
 
 	removeInputField(i : number) : void
 	{
-	   const control = <FormArray>this.form.controls.fromdate;
+	   const control = <FormArray>this.form.controls.formdate;
 	   control.removeAt(i);
 	}
 
